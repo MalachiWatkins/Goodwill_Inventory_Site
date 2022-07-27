@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=.8">
+  <title>Warehouse Management</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+  <style media="screen">
+    body {
+      font-family: Ubuntu, Helvetica, sans-serif;
+      color: #333;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .section {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+    }
+
+    .hero {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: #000000;
+    }
+
+    .content {
+      position: fixed;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 40vh;
+      margin-bottom: 100px;
+      padding-right: 50px;
+      padding-left: 50px;
+      border-radius: 10px;
+      background-color: hsla(0, 0%, 100%, 0.9);
+      box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    .paragraph {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    .heading {
+      margin-bottom: 40px;
+    }
+
+    .image {
+      width: 300px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .image-2 {
+      width: 800px;
+    }
+
+    .html-embed {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .image-3 {
+      width: 600px;
+    }
+
+    .image-3.link {
+      width: 580px;
+      margin-left: -13px;
+    }
+
+    .heading-2 {
+      margin-top: 100px;
+      margin-bottom: 100px;
+      text-align: center;
+    }
+
+    .text-span {
+      text-decoration: underline;
+    }
+
+    .text-span-2 {
+      text-decoration: line-through;
+    }
+
+    @media (max-width: 479px) {
+      .content {
+        width: 96%;
+        margin-top: 25vh;
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+
+      .heading-2 {
+        margin-top: 52px;
+        margin-bottom: 52px;
+      }
+    }
+
+    .linkdin {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    .header {
+      padding: 10px;
+      text-align: left;
+      color: #0056d6;
+      font-size: 20px;
+    }
+
+    .glow {
+      font-size: 5px;
+      color: #0047d6;
+      text-align: left;
+      -webkit-animation: glow 1s infinite;
+
+    }
+
+    .allignleft {
+      text-align: left;
+      float: left;
+    }
+
+    @-webkit-keyframes glow {
+      from {
+        text-shadow: 0 0 10px #0047d6, 0 0 20px #0047d6, 0 0 30px #0047d6, 0 0 40px #0047d6
+      }
+
+      to {
+        text-shadow: 0 0 10px #0047d6, 0 0 20px #0047d6, 0 0 30px #0047d6, 0 0 40px #0047d6
+      }
+    }
+
+    .container {
+      padding-top: 15px;
+      height: 75%;
+      width: 75%;
+      background-color: #000000
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      color: #1c1c1c;
+      background-color: #01529c;
+      text-align: center;
+    }
+
+    .container1 {
+      padding-top: 15px;
+      width: 80%;
+      background-color: #ffffff
+    }
+
+    .type_allign {
+      text-align: left;
+      padding-left: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    div.icon {
+      text-align: left;
+    }
+
+    div.invscontainer {
+
+      padding-top: 10px;
+      height: 25%;
+      width: 35%;
+    }
+
+    div.invsquant {
+      padding-top: 15px;
+      padding-bottom: 70px;
+      height: 10px;
+      width: 75px;
+    }
+
+    .padd {
+      padding-top: 15px;
+    }
+
+    .invsquantProc {
+      height: 10px;
+      width: 75px;
+      padding-bottom: 70px;
+    }
+
+      {
+      % block style %
+    }
+
+      {
+      % endblock%
+    }
+  </style>
+  {% block head %}
+  {% endblock%}
+</head>
+<nav class="navbar navbar-light" style="background-color: #01529c;">
+  <a class="navbar-brand" style="color: #ffffff; font-size:30px" href="/">Goodwill Warehouse Management </a>
+  <button class="navbar-toggler" style="background-color: #ffffff" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <img src="https://nmcdn.io/e186d21f8c7946a19faed23c3da2f0da/0a1af74792824776a4136ed802bdd432/images/logo.png" alt="" style="padding-left:50px;width:300px;height:50px;">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="color:#ffffff">
+    <div class="navbar-nav" style="color:#ffffff">
+      <a class=" nav-item nav-link" style="color: #ffffff;" href="/rec">Warehouse Receiver</a>
+      <a class=" nav-item nav-link" style="color: #ffffff;" href="/proc">SGW Processing</a>
+      <a class=" nav-item nav-link" style="color: #ffffff;" href="/books">Book Processing</a>
+      <a class=" nav-item nav-link" style="color: #ffffff;" href="/jewl">Jewelry Processing</a>
+      <a class=" nav-item nav-link" style="color: #ffffff;" href="/stats">Statistics</a>
+      <a class=" nav-item nav-link" style="color: #ffffff;" href="/view_jewlery_main">View Processed Jewlery</a>
+      <a class=" nav-item nav-link" style="color: #ffffff;" href="/view_sgw_main">View Processed Items</a>
+    </div>
+  </div>
+</nav>
+
+<body>
+  <div class="section">
+    <p style="fontsize:40px"></p>
+    <div id="particles-js" class="hero"><canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="976" height="1464"></canvas></div>
+    {% block body %}
+    {% endblock%}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script type="text/javascript">
+    particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 150,
+            "density": {
+              "enable": true,
+              "value_area": 1000
+            }
+          },
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            },
+            "polygon": {
+              "nb_sides": 5
+            },
+            "image": {
+              "src": "img/github.svg",
+              "width": 100,
+              "height": 100
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+              "enable": false,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 40,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 6,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "repulse"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 400,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 20,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 100,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      }
+
+
+    );
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+      stats.begin();
+      stats.end();
+      if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+      }
+      requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);;
+  </script>
+
+
+</body>
+<script>
+
+</script>
+
+</html>
