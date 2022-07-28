@@ -224,7 +224,7 @@
       text-align: center;
       min-height: 100vh;
       height: 70%;
-      width: 100%;
+      width: 50%;
     }
 
       {
@@ -246,8 +246,7 @@
 
     <div class="container1">
       <center>
-        <p style="color:white;font-size:20px;font-style: italic">Goodwill Warehouse Management Login
-        </p>
+        <p style="color:white;font-size:20px;font-style: italic">Goodwill Warehouse Management Login</p>
 
       </center>
 
@@ -257,163 +256,158 @@
           href="https://www.linkedin.com/in/malachi-watkins-9411511a6?trk=profile-badge">Created by: Malachi Watkins</a></div>
 
     </div>
-    <form action="/login_auth" method="post">
-      {% if failed == 'yes' %}
-      <div class="alert alert-danger" role="alert">
-        Invalid User Name or Password
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      {%endif%}
-      <div class="center-screen">
-        <div class="card">
-          <h5 class="card-header">Login</h5>
-          <div class="card-body">
+    <div class="center-screen">
+      <div class="card">
+        <h5 class="card-header">Login</h5>
+        <div class="card-body">
+          <form action="/login_auth" method="post">
             {% csrf_token %}
             <p>User Name: {{ form.user_name }}</p>
             <p> Password: {{ form.password }}</p>
             <input type="submit" value="Login">
-          </div>
+          </form>
         </div>
-    </form>
+      </div>
+
+
+    </div>
     {% block body %}
     {% endblock%}
+  </div>
 
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script type="text/javascript">
-      particlesJS("particles-js", {
-          "particles": {
-            "number": {
-              "value": 150,
-              "density": {
-                "enable": true,
-                "value_area": 1000
-              }
-            },
-            "color": {
-              "value": "#ffffff"
-            },
-            "shape": {
-              "type": "circle",
-              "stroke": {
-                "width": 0,
-                "color": "#000000"
-              },
-              "polygon": {
-                "nb_sides": 5
-              },
-              "image": {
-                "src": "img/github.svg",
-                "width": 100,
-                "height": 100
-              }
-            },
-            "opacity": {
-              "value": 0.5,
-              "random": false,
-              "anim": {
-                "enable": false,
-                "speed": 1,
-                "opacity_min": 0.1,
-                "sync": false
-              }
-            },
-            "size": {
-              "value": 3,
-              "random": true,
-              "anim": {
-                "enable": false,
-                "speed": 40,
-                "size_min": 0.1,
-                "sync": false
-              }
-            },
-            "line_linked": {
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script type="text/javascript">
+    particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 150,
+            "density": {
               "enable": true,
-              "distance": 150,
-              "color": "#ffffff",
-              "opacity": 0.4,
-              "width": 1
-            },
-            "move": {
-              "enable": true,
-              "speed": 6,
-              "direction": "none",
-              "random": false,
-              "straight": false,
-              "out_mode": "out",
-              "bounce": false,
-              "attract": {
-                "enable": false,
-                "rotateX": 600,
-                "rotateY": 1200
-              }
+              "value_area": 1000
             }
           },
-          "interactivity": {
-            "detect_on": "canvas",
-            "events": {
-              "onhover": {
-                "enable": true,
-                "mode": "repulse"
-              },
-              "onclick": {
-                "enable": true,
-                "mode": "push"
-              },
-              "resize": true
+          "color": {
+            "value": "#ffffff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
             },
-            "modes": {
-              "grab": {
-                "distance": 400,
-                "line_linked": {
-                  "opacity": 1
-                }
-              },
-              "bubble": {
-                "distance": 400,
-                "size": 20,
-                "duration": 2,
-                "opacity": 8,
-                "speed": 3
-              },
-              "repulse": {
-                "distance": 100,
-                "duration": 0.4
-              },
-              "push": {
-                "particles_nb": 4
-              },
-              "remove": {
-                "particles_nb": 2
-              }
+            "polygon": {
+              "nb_sides": 5
+            },
+            "image": {
+              "src": "img/github.svg",
+              "width": 100,
+              "height": 100
             }
           },
-          "retina_detect": true
-        }
+          "opacity": {
+            "value": 0.5,
+            "random": false,
+            "anim": {
+              "enable": false,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": false,
+              "speed": 40,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#ffffff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 6,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "repulse"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 400,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "bubble": {
+              "distance": 400,
+              "size": 20,
+              "duration": 2,
+              "opacity": 8,
+              "speed": 3
+            },
+            "repulse": {
+              "distance": 100,
+              "duration": 0.4
+            },
+            "push": {
+              "particles_nb": 4
+            },
+            "remove": {
+              "particles_nb": 2
+            }
+          }
+        },
+        "retina_detect": true
+      }
 
 
-      );
-      var count_particles, stats, update;
-      stats = new Stats;
-      stats.setMode(0);
-      stats.domElement.style.position = 'absolute';
-      stats.domElement.style.left = '0px';
-      stats.domElement.style.top = '0px';
-      document.body.appendChild(stats.domElement);
-      count_particles = document.querySelector('.js-count-particles');
-      update = function() {
-        stats.begin();
-        stats.end();
-        if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-          count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-        }
-        requestAnimationFrame(update);
-      };
-      requestAnimationFrame(update);;
-    </script>
+    );
+    var count_particles, stats, update;
+    stats = new Stats;
+    stats.setMode(0);
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '0px';
+    stats.domElement.style.top = '0px';
+    document.body.appendChild(stats.domElement);
+    count_particles = document.querySelector('.js-count-particles');
+    update = function() {
+      stats.begin();
+      stats.end();
+      if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+      }
+      requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);;
+  </script>
 
 
 </body>

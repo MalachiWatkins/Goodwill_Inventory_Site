@@ -10,11 +10,13 @@ from datetime import date
 from pymongo import MongoClient
 import pymongo
 import random
+import hashlib
+import bcrypt
 
 
-warehouse_db = cluster["WAREHOUSE_MANAGEMENT_Test"]  # GOODWILL
+warehouse_db = cluster["WAREHOUSE_MANAGEMENT_GOODWILL"]  # GOODWILL
 
-user_db = warehouse_db["Truck_Receiver_DB"]
+user_db = warehouse_db["User_DB"]
 Truck_Receiver_DB = warehouse_db["Truck_Receiver_DB"]
 
 Processor_Review_DB = warehouse_db["Processor_Review_DB"]
@@ -43,11 +45,21 @@ def login_auth(request):
         if form.is_valid():
             user = form.cleaned_data['user_name']
             password = form.cleaned_data['password']
-            return HttpResponse()
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = Userform()
+            hashed_pw = hashlib.sha256(password.encode())
+            checkpw = hashed_pw.hexdigest()
+            try:
+                user_query = {'User': user}
+                user_docs = user_db.find(user_query)
+                User_Document = user_docs[0]
+            except:
+                User_Document = {'User': 'NOT FOUND', 'Password': 'NOT FOUND'}
+            if user == User_Document['User']:
+                if User_Document['password'] == checkpw:
+                    return HttpResponse('Suscess')
+                else:
+                    return render(request, 'login.html', {'form': form, 'failed': 'yes'})
+            else:
+                return render(request, 'login.html', {'form': form, 'failed': 'yes'})
 
     return render(request, 'login_auth.html')
 
