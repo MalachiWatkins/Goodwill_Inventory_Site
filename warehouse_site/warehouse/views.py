@@ -12,7 +12,7 @@ import pymongo
 import random
 import hashlib
 import bcrypt
-
+import string
 
 warehouse_db = cluster["WAREHOUSE_MANAGEMENT_GOODWILL"]  # GOODWILL
 
@@ -31,7 +31,6 @@ Book_Media_Review_DB = warehouse_db["Book_Media_Review_DB"]
 Finished_DB = warehouse_db["Finished_DB"]
 
 Finished_Jewlery_DB = warehouse_db["Finished_Jewlery_DB"]
-# Create your views here.
 
 
 def login(request):
@@ -52,10 +51,15 @@ def login_auth(request):
                 user_docs = user_db.find(user_query)
                 User_Document = user_docs[0]
             except:
-                User_Document = {'User': 'NOT FOUND', 'Password': 'NOT FOUND'}
+                User_Document = {'User': 'NOT FOUND',
+                                 'Password': 'NOT FOUND', 'auth_token': 'UNAUTH'}
             if user == User_Document['User']:
                 if User_Document['password'] == checkpw:
-                    return HttpResponse('Suscess')
+                    auth = User_Document['auth_token']
+                    main = 'main/'
+                    redir = main + User_Document['User'] + '/' + auth + '/'
+
+                    return HttpResponseRedirect(redir)
                 else:
                     return render(request, 'login.html', {'form': form, 'failed': 'yes'})
             else:
@@ -64,10 +68,10 @@ def login_auth(request):
     return render(request, 'login_auth.html')
 
 
-def landing():
-
-    return
-
-
-def main(request):
-    return HttpResponse("Hello")
+def main(request, user, auth):
+    user_query = {'User': user}
+    user_docs = user_db.find(user_query)
+    if user_docs[0]['auth_token'] == auth:
+        return render(request, 'landing.html')
+    else:
+        return HttpResponse('not auth')
