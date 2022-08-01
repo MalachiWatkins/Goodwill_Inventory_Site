@@ -1,5 +1,91 @@
 {% extends "base.html" %}
 
+{% block head %}
+<style media="screen">
+  body {
+    font-family: Ubuntu, Helvetica, sans-serif;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+    font-style: italic;
+    /* Hide scrollbars */
+  }
+
+  .mobile {
+    background: inherit;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);
+  }
+
+  @media only screen and (max-width: 900px) {
+    .mobile {
+      width: 10px;
+      visibility: hidden;
+    }
+  }
+</style>
+{% endblock%}
 {% block body %}
 
+<div class="section">
+  <div class="center-screen">
+    <div class="float-container">
+      <div class='mobile'>
+        <iframe style="" width="640" height="480" src="https://charts.mongodb.com/charts-goodwill-db-htuvo/embed/charts?id=62e40bb1-e4bf-41eb-8045-175ce3bc4f99&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+      </div>
+      <div class="float-child">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"> Truck Recever </h5>
+            <p class="card-text">Input items from truck to later be processed.</p>
+            <a href="/main/truck" class="card-link">Input Inventory</a>
+            <a href="#" class="card-link">Review Truck Today</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">SGW Processing</h5>
+            <p class="card-text">Sort and Process SGW Items.</p>
+            <a href="#" class="card-link">Process</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Jewlery Processing</h5>
+            <p class="card-text">Process Jewlery.</p>
+            <a href="#" class="card-link">Process</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="float-child">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Statistics</h5>
+            <p class="card-text">View Statistics, generate and download all store statistics.</p>
+            <a href="#" class="card-link">View Stats</a>
+            <a href="#" class="card-link">Generate spreadsheets</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Computer Processing</h5>
+            <p class="card-text">Process Computers and Electronics.</p>
+            <a href="#" class="card-link">Process</a>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Books/Media Processing</h5>
+            <p class="card-text">Process Books\Media.</p>
+            <a href="#" class="card-link">Process</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 {% endblock %}

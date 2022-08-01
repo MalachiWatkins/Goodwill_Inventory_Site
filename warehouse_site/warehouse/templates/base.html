@@ -2,8 +2,10 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=.8">
+  <meta name="viewport" content="width=device-width, initial-scale=.6">
   <title>Warehouse Management</title>
+  {% load static %}
+  <link rel="shortcut icon" type="image/png" href="https://goodwillotc.org/wp-content/uploads/2017/04/Favicon.png" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -15,13 +17,27 @@
       color: #333;
       font-size: 14px;
       line-height: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .hide-mobile {
+      visibility: visible;
+
+    }
+
+    @media only screen and (max-width: 900px) {
+      .hide-mobile {
+        visibility: hidden;
+        width: 10px;
+      }
     }
 
     .section {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
-      display: flex;
+
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -webkit-flex-direction: column;
@@ -211,6 +227,54 @@
       padding-bottom: 70px;
     }
 
+    .center-screen {
+      padding-top: 50px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      height: 50%;
+      width: 100%;
+      background-color: white;
+    }
+
+    .float-container {
+      display: flex;
+
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      opacity: .999;
+      border-radius: 25px;
+    }
+
+    .float-child {
+      float: left;
+      padding: 10px;
+    }
+
+    .float-child_right {
+      float: right;
+      padding: 10px;
+    }
+
+    .header_landing {
+      float: right;
+      padding: 10px;
+    }
+    }
+
+    .main_container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      opacity: 0.9;
+      border-radius: 25px;
+    }
+
+
+
       {
       % block style %
     }
@@ -223,14 +287,14 @@
   {% endblock%}
 </head>
 <nav class="navbar navbar-light" style="background-color: #01529c;">
-  <a class="navbar-brand" style="color: #ffffff; font-size:30px" href="/">Goodwill Warehouse Management </a>
+  <a class="navbar-brand" style="color: #ffffff; font-size:30px" href="/home">Goodwill Warehouse Management </a>
   <button class="navbar-toggler" style="background-color: #ffffff" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <img src="https://nmcdn.io/e186d21f8c7946a19faed23c3da2f0da/0a1af74792824776a4136ed802bdd432/images/logo.png" alt="" style="padding-left:50px;width:300px;height:50px;">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="color:#ffffff">
     <div class="navbar-nav" style="color:#ffffff">
-      <a class=" nav-item nav-link" style="color: #ffffff;" href="/rec">Warehouse Receiver</a>
+      <a class=" nav-item nav-link" style="color: #ffffff;" href="/">Warehouse Receiver</a>
       <a class=" nav-item nav-link" style="color: #ffffff;" href="/proc">SGW Processing</a>
       <a class=" nav-item nav-link" style="color: #ffffff;" href="/books">Book Processing</a>
       <a class=" nav-item nav-link" style="color: #ffffff;" href="/jewl">Jewelry Processing</a>
@@ -242,6 +306,7 @@
 </nav>
 
 <body>
+
   <div class="section">
     <p style="fontsize:40px"></p>
     <div id="particles-js" class="hero"><canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="976" height="1464"></canvas></div>
