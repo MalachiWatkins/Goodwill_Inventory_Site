@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=.6">
+  <meta name="viewport" content="width=device-width, initial-scale=.7">
   <title>Warehouse Management</title>
   {% load static %}
   <link rel="shortcut icon" type="image/png" href="https://goodwillotc.org/wp-content/uploads/2017/04/Favicon.png" />
@@ -17,27 +17,14 @@
       color: #333;
       font-size: 14px;
       line-height: 20px;
-      overflow-x: hidden;
       position: relative;
-    }
-
-    .hide-mobile {
-      visibility: visible;
-
-    }
-
-    @media only screen and (max-width: 900px) {
-      .hide-mobile {
-        visibility: hidden;
-        width: 10px;
-      }
+      background-color: black;
     }
 
     .section {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
-
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -webkit-flex-direction: column;
@@ -54,6 +41,12 @@
       width: 100%;
       height: 100vh;
       background-color: #000000;
+    }
+
+    @media only screen and (max-width: 900px) {
+      .hero {
+        opacity: 0;
+      }
     }
 
     .content {
@@ -235,7 +228,6 @@
       min-height: 100vh;
       height: 50%;
       width: 100%;
-      background-color: white;
     }
 
     .float-container {
@@ -251,6 +243,12 @@
     .float-child {
       float: left;
       padding: 10px;
+    }
+
+    @media only screen and (max-width: 900px) {
+      .float-child {
+        padding: 1px;
+      }
     }
 
     .float-child_right {
@@ -273,7 +271,38 @@
       border-radius: 25px;
     }
 
+    .mobile_nav {
+      font-size: 18px
+    }
 
+    @media only screen and (max-width: 900px) {
+      .mobile_nav {
+        font-size: 30px
+      }
+    }
+
+    .nav_mobile {}
+
+    @media only screen and (max-width: 900px) {
+      .nav_mobile {
+        position: absolute;
+        opacity: 0
+      }
+    }
+
+    .nav_bar_controls {}
+
+    @media only screen and (max-width: 900px) {
+      .nav_bar_controls {
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        height: 50%;
+        width: 100%;
+      }
+    }
 
       {
       % block style %
@@ -286,32 +315,45 @@
   {% block head %}
   {% endblock%}
 </head>
-<nav class="navbar navbar-light" style="background-color: #01529c;">
-  <a class="navbar-brand" style="color: #ffffff; font-size:30px" href="/home">Goodwill Warehouse Management </a>
-  <button class="navbar-toggler" style="background-color: #ffffff" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <img src="https://nmcdn.io/e186d21f8c7946a19faed23c3da2f0da/0a1af74792824776a4136ed802bdd432/images/logo.png" alt="" style="padding-left:50px;width:300px;height:50px;">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="color:#ffffff">
-    <div class="navbar-nav" style="color:#ffffff">
-      <a class=" nav-item nav-link" style="color: #ffffff;" href="/">Warehouse Receiver</a>
-      <a class=" nav-item nav-link" style="color: #ffffff;" href="/proc">SGW Processing</a>
-      <a class=" nav-item nav-link" style="color: #ffffff;" href="/books">Book Processing</a>
-      <a class=" nav-item nav-link" style="color: #ffffff;" href="/jewl">Jewelry Processing</a>
-      <a class=" nav-item nav-link" style="color: #ffffff;" href="/stats">Statistics</a>
-      <a class=" nav-item nav-link" style="color: #ffffff;" href="/view_jewlery_main">View Processed Jewlery</a>
-      <a class=" nav-item nav-link" style="color: #ffffff;" href="/view_sgw_main">View Processed Items</a>
+<div class="nav_bar_controls">
+  <nav class="navbar navbar-light" style="background-color: #01529c;">
+
+    <div class="nav_mobile">
+
+      <a class="navbar-brand" style="color: #ffffff; font-size:30px;padding-top:10px;text-align: center;">Goodwill Warehouse Management </a>
     </div>
-  </div>
-</nav>
+
+    <button class="navbar-toggler" style="background-color: #ffffff;text-align: left;" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="btn btn-primary" href="/home" role="button" style="">Home</a>
+      <img src="https://nmcdn.io/e186d21f8c7946a19faed23c3da2f0da/0a1af74792824776a4136ed802bdd432/images/logo.png" alt="" style="padding-left:40px;width:300px;height:50px;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="color:#ffffff">
+      <div class="navbar-nav" style="color:#ffffff">
+        <div class="mobile_nav">
+          <a class=" nav-item nav-link" style="color: #ffffff;padding-top: 20px;padding-bottom:20px" href="/">Warehouse Receiver</a>
+          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/proc">SGW Processing</a>
+          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/books">Book Processing</a>
+          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/jewl">Jewelry Processing</a>
+          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/stats">Statistics</a>
+          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/view_jewlery_main">View Processed Jewlery</a>
+          <a class=" nav-item nav-link" style="color: #ffffff;" href="/view_sgw_main">View Processed Items</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+</div>
 
 <body>
 
   <div class="section">
     <p style="fontsize:40px"></p>
+
     <div id="particles-js" class="hero"><canvas class="particles-js-canvas-el" style="width: 100%; height: 100%;" width="976" height="1464"></canvas></div>
     {% block body %}
     {% endblock%}
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -319,7 +361,7 @@
     particlesJS("particles-js", {
         "particles": {
           "number": {
-            "value": 150,
+            "value": 100,
             "density": {
               "enable": true,
               "value_area": 1000

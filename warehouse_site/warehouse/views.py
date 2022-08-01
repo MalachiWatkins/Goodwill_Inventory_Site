@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import Userform
 from .forms import TruckForm
+from .forms import ProcForm
 from django.http import HttpResponseRedirect
 import os
 import jinja2
@@ -175,3 +176,18 @@ def truck(request):
             return render(request, 'truck.html', {'form': form})
 
         return render(request, 'truck.html')
+
+
+def proc(request, data):
+    value = request.COOKIES.get('user')
+    if value is None:
+        form = Userform(request.POST)
+        response = render(request, 'login.html', {
+            'form': form, 'UNAUTH': 'yes'})
+        response.delete_cookie('user')
+
+        return response
+    else:
+        n = 'n'
+    empty_proc_form = ProcForm(request.POST)
+    return render(request, 'proc.html', {'form': empty_proc_form, 'data': data})

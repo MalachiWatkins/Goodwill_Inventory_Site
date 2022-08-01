@@ -9,5 +9,7 @@ urlpatterns = [
     path('main/<str:user>/<str:auth>/', views.main),
     path('main/truck', views.truck),
     path('home', views.home),
+    path('main/process/<str:data>', views.proc),
+
 
 ]

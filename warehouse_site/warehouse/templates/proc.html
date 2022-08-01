@@ -1,6 +1,5 @@
 {% extends "base.html" %}
-
-{% block head %}
+{% block head%}
 <style media="screen">
   body {
     font-family: Ubuntu, Helvetica, sans-serif;
@@ -32,34 +31,19 @@
     padding-left: 5px;
     padding-right: 5px;
   }
-
-  @media only screen and (max-width: 900px) {
-    .hero {
-      opacity: 0;
-    }
-  }
 </style>
-{% endblock%}
+{% endblock %}
 {% block body %}
-
 <div class="section">
   <div class="center-screen">
     <div class="float-container_truck">
       <header style="color:Black">
-        <p style="font-size:40px;padding-top:20px;padding-left:5px;padding-right:5px">Warehouse Received Processing </p>
+        <p style="font-size:40px;padding-top:20px;padding-left:190px;padding-right:190px">Search: {{ data }} </p>
       </header>
       <center>
 
         <form class="" action="/main/truck" method="post">
           {% csrf_token %}
-
-          <div class="form-group">
-            <label for="" style="font-size:20px;color:black">Quantity</label>
-            <center>
-              <p>{{ form.Quant }}</p>
-            </center>
-
-          </div>
 
           <div class="invscontainer">
             <div class="form-group">
@@ -82,25 +66,11 @@
             </div>
           </div>
 
-          <div class="invscontainer">
-            <div class="form-group">
-              <label for="" style="font-size:20px;color:black">Problems</label>
-              <p>{{ form.problems }}</p>
-            </div>
-          </div>
-
-          <input class="btn btn-primary" type="submit" value="Add">
-        </form>
-        <form class="" action="/home" method="post" style="padding-top: 10px">
-          {% csrf_token %}
-          <input class="btn btn-primary" style="padding-bottom:5px" type="submit" value="Done">
+          <input class="btn btn-primary" type="submit" value="Search">
         </form>
 
       </center>
     </div>
   </div>
 </div>
-
-
-
 {% endblock %}

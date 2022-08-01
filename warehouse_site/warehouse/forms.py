@@ -56,3 +56,12 @@ class TruckForm(forms.Form):
                                     widget=forms.Select(choices=content_choice,    attrs={'class': "form-control"}))
     problems = forms.IntegerField(required=False, label='Quantity', widget=forms.Textarea(
         attrs={'class': "form-control", 'style': 'width:200px;height:90px;resize:none;'}))
+
+
+class ProcForm(forms.Form):
+    store_number = forms.CharField(required=True, label='Store Number',
+                                   widget=forms.Select(choices=Store_num_Choices,    attrs={'class': "form-control"}))
+    storage = forms.CharField(required=True, label='Item Container',
+                              widget=forms.Select(choices=storage_type_choices,    attrs={'class': "form-control"}))
+    item_contents = forms.CharField(required=True, label='Item Contentsr',
+                                    widget=forms.Select(choices=content_choice,    attrs={'class': "form-control"}))

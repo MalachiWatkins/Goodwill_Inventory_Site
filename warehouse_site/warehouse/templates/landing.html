@@ -25,6 +25,10 @@
       visibility: hidden;
     }
   }
+
+  .mobile_butt {
+    fontsize: 40px
+  }
 </style>
 {% endblock%}
 {% block body %}
@@ -41,21 +45,22 @@
             <h5 class="card-title"> Truck Recever </h5>
             <p class="card-text">Input items from truck to later be processed.</p>
             <a href="/main/truck" class="card-link">Input Inventory</a>
-            <a href="#" class="card-link">Review Truck Today</a>
+            <a href="#" class="card-link" style="">Review Truck Today</a>
+
           </div>
         </div>
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">SGW Processing</h5>
             <p class="card-text">Sort and Process SGW Items.</p>
-            <a href="#" class="card-link">Process</a>
+            <a href="/main/process/SGW" class="card-link">Process</a>
           </div>
         </div>
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Jewlery Processing</h5>
             <p class="card-text">Process Jewlery.</p>
-            <a href="#" class="card-link">Process</a>
+            <a href="/main/process/Jewlery" class="card-link">Process</a>
           </div>
         </div>
       </div>
@@ -73,14 +78,14 @@
           <div class="card-body">
             <h5 class="card-title">Computer Processing</h5>
             <p class="card-text">Process Computers and Electronics.</p>
-            <a href="#" class="card-link">Process</a>
+            <a href="/main/process/Computers" class="card-link">Process</a>
           </div>
         </div>
         <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">Books/Media Processing</h5>
             <p class="card-text">Process Books\Media.</p>
-            <a href="#" class="card-link">Process</a>
+            <a href="/main/process/BooksMedia" class="card-link">Process</a>
           </div>
         </div>
       </div>
