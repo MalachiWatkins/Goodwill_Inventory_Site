@@ -8,6 +8,7 @@
     line-height: 20px;
     font-style: italic;
     margin: 0;
+    line-height: 1;
     height: 100%;
     overflow: hidden;
     position: flex;
@@ -38,17 +39,25 @@
   <div class="center-screen">
     <div class="float-container_truck">
       <header style="color:Black">
-        <p style="font-size:40px;padding-top:20px;padding-left:190px;padding-right:190px">Search: {{ data }} </p>
       </header>
       <center>
+        <p style="font-size:35px;padding-top:20px;padding-left:240px;padding-right:240px;">Search for {{data}}</p>
 
-        <form class="" action="/main/truck" method="post">
+        <form class="" action="/main/process/{{data}}" method="post">
           {% csrf_token %}
-
+          {% if data == 'BooksMedia' %}
+          <div class="invscontainer">
+            <div class="form-group">
+              <label for="" style="font-size:20px;color:black">Item Contents</label>
+              <p>{{ form.item_contents_books_media }}</p>
+              <p></p>
+            </div>
+          </div>
+          {%endif%}
           <div class="invscontainer">
             <div class="form-group">
               <label for="" style="font-size:20px;color:black">Storage Type</label>
-              <p>{{ form.storage }}</p>
+              <p name="storage">{{ form.storage }}</p>
             </div>
           </div>
 
@@ -59,12 +68,6 @@
             </div>
           </div>
 
-          <div class="invscontainer">
-            <div class="form-group">
-              <label for="" style="font-size:20px;color:black">Item Contents</label>
-              <p>{{ form.item_contents }}</p>
-            </div>
-          </div>
 
           <input class="btn btn-primary" type="submit" value="Search">
         </form>

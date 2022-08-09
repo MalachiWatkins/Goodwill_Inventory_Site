@@ -290,7 +290,19 @@
       }
     }
 
-    .nav_bar_controls {}
+    .desktop_navbar {
+      visibility: visible;
+    }
+
+    @media only screen and (max-width: 500px) {
+      .desktop_navbar {
+        visibility: hidden;
+      }
+    }
+
+    .nav_bar_controls {
+      visibility: visible;
+    }
 
     @media only screen and (max-width: 900px) {
       .nav_bar_controls {
@@ -298,9 +310,33 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-
+        visibility: visible;
         height: 50%;
         width: 100%;
+      }
+    }
+
+    .navbar-toggler {
+      visibility: hidden;
+    }
+
+    .log {
+      visibility: visible;
+    }
+
+    @media only screen and (max-width: 900px) {
+      .log {
+        visibility: hidden;
+        background-color: white;
+        border-color: black
+      }
+    }
+
+    @media only screen and (max-width: 900px) {
+      .navbar-toggler {
+        visibility: visible;
+        background-color: white;
+        border-color: black
       }
     }
 
@@ -316,31 +352,57 @@
   {% endblock%}
 </head>
 <div class="nav_bar_controls">
-  <nav class="navbar navbar-light" style="background-color: #01529c;">
+  <nav class="navbar navbar-light" style="background-color: #ffffff;">
 
     <div class="nav_mobile">
-
-      <a class="navbar-brand" style="color: #ffffff; font-size:30px;padding-top:10px;text-align: center;">Goodwill Warehouse Management </a>
-    </div>
-
-    <button class="navbar-toggler" style="background-color: #ffffff;text-align: left;" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <a class="btn btn-primary" href="/home" role="button" style="">Home</a>
-      <img src="https://nmcdn.io/e186d21f8c7946a19faed23c3da2f0da/0a1af74792824776a4136ed802bdd432/images/logo.png" alt="" style="padding-left:40px;width:300px;height:50px;">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="color:#ffffff">
-      <div class="navbar-nav" style="color:#ffffff">
-        <div class="mobile_nav">
-          <a class=" nav-item nav-link" style="color: #ffffff;padding-top: 20px;padding-bottom:20px" href="/">Warehouse Receiver</a>
-          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/proc">SGW Processing</a>
-          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/books">Book Processing</a>
-          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/jewl">Jewelry Processing</a>
-          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/stats">Statistics</a>
-          <a class=" nav-item nav-link" style="color: #ffffff;padding-bottom:20px" href="/view_jewlery_main">View Processed Jewlery</a>
-          <a class=" nav-item nav-link" style="color: #ffffff;" href="/view_sgw_main">View Processed Items</a>
+      <a href="#" style="padding-right:15px"><img src="https://goodwillotc.org/wp-content/uploads/2017/04/Favicon.png" style="width:50px;height:50px" alt=""> </a>
+      <a class="btn btn-dark" href="/home" role="button" style="font-size:20px">Home
+      </a>
+      <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group" role="group">
+          <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size:20px">
+            Stats
+          </button>
+          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item " href="/stats">Warehouse</a>
+            <a class="dropdown-item" href="#">Lister WIP</a>
+            <a class="dropdown-item" href="#">Processor WIP</a>
+          </div>
         </div>
       </div>
+      <a class="btn btn-warning" href="/main/truck" role="button" style="font-size:20px">Truck</a>
+      <a class="btn btn-info btn-info disabled" href="#" role="button" style="font-size:20px" disabled>Review Processed WIP</a>
+      <a class="btn btn-success" href="/tools" role="button" style="font-size:20px">Tools WIP</a>
+
     </div>
+
+    <button class="navbar-toggler" style="text-align: left;" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="btn btn-dark" href="/home" role="button" style="font-size:20px">Home</a>
+      <a class="btn btn-danger" href="/logout" role="button" style="font-size:20px">Logout</a>
+      <img src="https://nmcdn.io/e186d21f8c7946a19faed23c3da2f0da/0a1af74792824776a4136ed802bdd432/images/logo.png" alt="" style="padding-left:10px;width:250px;height:50px;">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="log">
+      <a class="btn btn-danger" href="/logout" role="button" style="position: flex;font-size:20px;text-align: right;">Logout</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="color:#ffffff">
+      <div class="navbar-nav" style="color:#000000">
+        <div class="mobile_nav">
+          <a class=" nav-item nav-link" style="color: #000000;padding-top: 20px;padding-bottom:20px" href="/home">Home</a>
+          <a class=" nav-item nav-link" style="color: #000000;padding-bottom:20px" href="/main/truck/">Truck</a>
+          <a class=" nav-item nav-link" style="color: #000000;padding-bottom:20px" href="/main/process/Computers">Computer Processing</a>
+          <a class=" nav-item nav-link" style="color: #000000;padding-bottom:20px" href="/main/process/Collectables">SGW Processing</a>
+          <a class=" nav-item nav-link" style="color: #000000;padding-bottom:20px" href="/main/process/Books">Book Processing</a>
+          <a class=" nav-item nav-link" style="color: #000000;padding-bottom:20px" href="/main/process/Media">Media Processing</a>
+          <a class=" nav-item nav-link" style="color: #000000;padding-bottom:20px" href="/main/process/Jewelry">Jewelry Processing</a>
+          <a class=" nav-item nav-link" style="color: #000000;padding-bottom:20px" href="/stats">Statistics</a>
+        </div>
+      </div>
+
+    </div>
+
   </nav>
 
 </div>

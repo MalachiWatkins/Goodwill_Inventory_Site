@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block head%}
+<style media="screen">
+  body {
+    font-family: Ubuntu, Helvetica, sans-serif;
+    color: #333;
+    font-size: 14px;
+    line-height: 20px;
+    font-style: italic;
+    margin: 0;
+    line-height: 1;
+    height: 100%;
+    overflow: hidden;
+    position: flex;
+    /* Hide scrollbars */
+  }
+
+  .container_truck {
+    height: 50%;
+    width: 100%;
+    background-color: white;
+  }
+
+  .float-container_truck {
+    display: fixed;
+    width: 900px;
+    height: 600px;
+    background-color: white;
+    opacity: 0.999;
+    border-radius: 25px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+</style>
+{% endblock %}
+{% block body %}
+<div class="section">
+  <div class="center-screen">
+    <div class="float-container_truck">
+      <header style="color:Black">
+        <h1>Tools</h1>
+      </header>
+      <center>
+        <h2 style="padding-top:20px"><a href="#" class="badge badge-success">System Information Software</a></h2>
+        <h2 style="font-size:25px">Software for gathering system specific infomation aswell as activating windows (Must have MAR folderin root DIR)</h2>
+
+        <h2 style="padding-top:20px"><a href="#" class="badge badge-secondary">MAR Folder</a></h2>
+        <h2 style="font-size:25px">MAR folder for use in the System Information Software</h2>
+
+        <h2 style="padding-top:20px">Contanct Information</h2>
+        <h2 style="font-size:25px">Malachi Watkins </h2>
+        <h2 style="font-size:25px">Email: MalachiWatkinsDev@gmail.com</h2>
+        <h2 style="font-size:25px">Github: <a href="https://github.com/MalachiWatkins">https://github.com/MalachiWatkins</a></h2>
+        <h2 style="font-size:25px">Linkdin: <a href="https://www.linkedin.com/in/malachi-watkins-9411511a6/">https://www.linkedin.com/in/malachi-watkins-9411511a6/</a></h2>
+
+      </center>
+    </div>
+  </div>
+</div>
+{% endblock %}
